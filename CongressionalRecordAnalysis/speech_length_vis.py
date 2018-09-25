@@ -1,6 +1,16 @@
 from create_models import *
+import matplotlib.pyplot as plt 
+import numpy as np
+from collections import Counter
 
-def vis_corpus
+def vis_corpus(corpus):
+	lens = []
+	for doc in corpus:
+		lens.append(len(doc.words))
+	c = Counter(lens)
+	plt.bar(c.keys(), c.values())
+	plt.show()
+
 
 if __name__ == '__main__':
 	#file_names = []

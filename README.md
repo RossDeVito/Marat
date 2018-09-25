@@ -4,6 +4,10 @@ Project to evaluate political speach.
 Named after Jean-Paul Marat and his use of the writen word and questionable facts to rabble-rouse.
 
 ## Areas of Inquiry
+
+### Vector Space Enrichment
+- Use on non target texts to produce a more accurate vector space to the real world situation
+	- e.g. Mapping polical statements into a vectorspace of news articles
   
 ### Congressional Record
 - Predicting party affiliation

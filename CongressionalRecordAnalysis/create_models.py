@@ -161,18 +161,6 @@ def setup_models(corpus, group_name, model_selection=0):
 	base_models = []
 	if model_selection == 0 or model_selection == 1:
 		base_models += [
-			#PV-DM - distributed memory training algorithm 
-			Doc2Vec(dm=1, 
-					dm_mean=1, 
-					vector_size=300, 
-					window=15, 
-					negative=5, 
-					hs=0, 
-					min_count=9,
-					sample=1e-5, 
-					workers=cores,
-					epochs=100,
-					comment='doctypes-{}'.format(group_name)),
 			#PV-DBOW - distributed bag of words training algorithm
 			#1 from https://arxiv.org/pdf/1607.05368.pdf
 			#beacause each piece of text will appear three times (as part of its full text,
@@ -188,30 +176,30 @@ def setup_models(corpus, group_name, model_selection=0):
 					dbow_words=1,
 					epochs=20,
 					comment='doctypes-{}'.format(group_name)),
-			#DBOW with smaller vector, higher min word count, smaller window, higher epochs
-			Doc2Vec(vector_size=100, 
-					window=5, 
-					min_count=50,
-					sample=1e-5, 
-					workers=cores, 
-					hs=0, 
-					dm=0, 
-					negative=5,
-					dbow_words=1,
-					epochs=100,
-					comment='doctypes-{}'.format(group_name)),
-			#DBOW from https://groups.google.com/forum/#!topic/gensim/QuVMR8yso4s
-			Doc2Vec(dm=0, 
-					dbow_words=1, 
-					vector_size=200, 
-					window=8, 
-					min_count=20,
-					sample=1e-5,
-					epochs=20, 
-					workers=cores,
-					hs=0,
-					negative=5,
-					comment='doctypes-{}'.format(group_name))
+			# #DBOW with smaller vector, higher min word count, smaller window, higher epochs
+			# Doc2Vec(vector_size=100, 
+			# 		window=5, 
+			# 		min_count=50,
+			# 		sample=1e-5, 
+			# 		workers=cores, 
+			# 		hs=0, 
+			# 		dm=0, 
+			# 		negative=5,
+			# 		dbow_words=1,
+			# 		epochs=100,
+			# 		comment='doctypes-{}'.format(group_name)),
+			# #DBOW from https://groups.google.com/forum/#!topic/gensim/QuVMR8yso4s
+			# Doc2Vec(dm=0, 
+			# 		dbow_words=1, 
+			# 		vector_size=200, 
+			# 		window=8, 
+			# 		min_count=20,
+			# 		sample=1e-5,
+			# 		epochs=20, 
+			# 		workers=cores,
+			# 		hs=0,
+			# 		negative=5,
+			# 		comment='doctypes-{}'.format(group_name))
 		]
 	if model_selection == 0 or model_selection == 2:
 		base_models += [
@@ -328,7 +316,7 @@ def train_models(models, corpus):
 	return file_names
 
 if __name__ == '__main__':
-	#file_names = []
+	file_names = []
 	path_to_files = '../CongressionalRecordData/hein-daily/hein-daily/'
 	file_groups = {
 		'100th': ['speeches_100.txt']#,
@@ -341,16 +329,20 @@ if __name__ == '__main__':
 		# 			'speeches_114.txt']
 	} 
 	min_speech_length = [
-		1, 
-		100
+		# 1,
+		# 30,
+		50,
+		# 100
 	]
 	for min_length in min_speech_length:
 		for group_name, files in file_groups.items():
 			doc_corpus = get_corpus(path_to_files, files, min_length)
-			print(doc_corpus)
-			#base_models = setup_models(doc_corpus, group_name, 1)
-			#file_names.extend(train_models(base_models, doc_corpus))
-			#train_models(base_models, doc_corpus)
+			base_models = setup_models(
+				doc_corpus, 
+				group_name + 'min{}'.format(str(min_length)), 
+				1
+			)
+			file_names.extend(train_models(base_models, doc_corpus))
 
 	print(file_names)
 		
