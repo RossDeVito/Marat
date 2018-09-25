@@ -1,7 +1,7 @@
 # Congressional Record Data
 Extract data from https://data.stanford.edu/congress_text here.
 
-TODO: give proper file structure
+File structure after extractions:
 
 <pre><font color="#729FCF"><b>.</b></font>
 ├── <font color="#729FCF"><b>audit</b></font>
@@ -53,3 +53,5 @@ TODO: give proper file structure
     │   └── <font color="#729FCF"><b>vocabulary</b></font>
     └── <font color="#729FCF"><b>vocabulary</b></font>
 </pre>
+
+\_MACOSX directories can be removed
