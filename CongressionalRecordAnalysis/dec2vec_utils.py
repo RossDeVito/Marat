@@ -6,7 +6,6 @@ import time
 
 import numpy as np
 import pandas as pd
-import seaborn as sns
 
 import gensim
 from gensim.models import Doc2Vec
