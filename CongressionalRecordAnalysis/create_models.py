@@ -175,7 +175,7 @@ def setup_models(corpus, group_name, model_selection=0):
 					negative=5,
 					dbow_words=1,
 					epochs=20,
-					comment='doctypes-{}'.format(group_name)),
+					comment='{}'.format(group_name)),
 			# #DBOW with smaller vector, higher min word count, smaller window, higher epochs
 			# Doc2Vec(vector_size=100, 
 			# 		window=5, 
