@@ -331,8 +331,8 @@ if __name__ == '__main__':
 	min_speech_length = [
 		# 1,
 		# 30,
-		50,
-		# 100
+		#50,
+		 100
 	]
 	for min_length in min_speech_length:
 		for group_name, files in file_groups.items():
