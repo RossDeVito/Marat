@@ -4,9 +4,9 @@ from dec2vec_utils import get_most_similar
 
 model_source_minlen = [
 	[
-		'Doc2Vec(100thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t2)',
+		'Doc2Vec(100thmin25_dbow+w_d300_n5_w15_mc15_s1e-05_t4)',
 		['speeches_100.txt'],
-		100
+		25
 	]
 ]
 

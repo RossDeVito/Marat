@@ -329,10 +329,10 @@ if __name__ == '__main__':
 		# 			'speeches_114.txt']
 	} 
 	min_speech_length = [
-		# 1,
-		# 30,
+		 25,
+		 1,
 		#50,
-		 100
+		# 100
 	]
 	for min_length in min_speech_length:
 		for group_name, files in file_groups.items():
