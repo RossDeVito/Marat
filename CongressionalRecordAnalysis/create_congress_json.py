@@ -40,7 +40,8 @@ def create_congressperson_jsons(path, file):
 			speeches[speech_id] = speaker_id
 	cong_num, _ = file.split('_')
 	with open(cong_num + '_speakers.json', 'w') as w_json:
-		json.dump(list(speakers.values()), w_json, indent=4)
+		#json.dump(list(speakers.values()), w_json, indent=4)
+		json.dump(speakers, w_json, indent=4)
 	with open(cong_num + '_speech_to_speaker.json', 'w') as w_json:
 		json.dump(speeches, w_json)
 			
