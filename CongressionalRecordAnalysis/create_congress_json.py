@@ -6,7 +6,7 @@ import os
 #  dict mapping
 
 speaker_map_files = [
-	'100_SpeakerMap.txt',
+	'114_SpeakerMap.txt',
 ]
 
 def create_congressperson_jsons(path, file):
@@ -39,10 +39,12 @@ def create_congressperson_jsons(path, file):
 				speakers[speaker_id]['speech_ids'].append(speech_id)
 			speeches[speech_id] = speaker_id
 	cong_num, _ = file.split('_')
-	with open(cong_num + '_speakers.json', 'w') as w_json:
+	with open(os.path.join('congress_jsons', cong_num + '_speakers.json'), 
+				'w') as w_json:
 		#json.dump(list(speakers.values()), w_json, indent=4)
 		json.dump(speakers, w_json, indent=4)
-	with open(cong_num + '_speech_to_speaker.json', 'w') as w_json:
+	with open(os.path.join('congress_jsons', cong_num + '_speech_to_speaker.json'), 
+				'w') as w_json:
 		json.dump(speeches, w_json)
 			
 
