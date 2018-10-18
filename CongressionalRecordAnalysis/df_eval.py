@@ -24,7 +24,7 @@ def generate_pca(df):
 
 
 if __name__ == '__main__':
-	sources = ['100thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t2.h5']
+	sources = ['114thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t4.h5']
 	sns.set(style='darkgrid')
 	for source in sources:
 		df = pd.read_hdf(os.path.join('dataframes', source), 'df')
