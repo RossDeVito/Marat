@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 
 if __name__ == '__main__':
 	source = '114thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t4.h5'
-	df = pd.read_hdf(os.path.join('dataframes', source), 'df')
+	df = pd.read_hdf(os.path.join('../', 'dataframes', source), 'df')
 	df = df[((df['party']=='R') | (df['party']=='D')) & (df['num_texts'] != 0)]
 	df['party_bin'] = (df['party'] == 'D').astype(int) #D is 1, R is 0
 	# X = np.array(df['avg_vec'].tolist())
@@ -30,7 +30,7 @@ if __name__ == '__main__':
 	
 	model = Sequential()
 	model.add(Dense(150, input_dim=300, activation='relu'))
-	model.add(Dropout(.25))
+	model.add(Dropout(.5))
 	model.add(Dense(1, activation='sigmoid'))
 
 	model.compile(loss='binary_crossentropy',

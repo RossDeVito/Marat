@@ -28,4 +28,64 @@ Vector representations of speach segments will be clustered into N groups. The a
 
 ## 1. Neural Network using Average Vectors
 
+### Hyperparameter Optimization
+Using [Hyperas](https://github.com/maxpumperla/hyperas)
+same test set was used for all rounds.
 
+#### Rounds:
+
+##### 1.
+Potential Parameters:
+- 1-3 hidden layers with: 
+	- either 100, 150, 256, 300, or 512 neurons
+	- either relu or tanh activation function
+	- dropout from 0-1
+- rmsprop, adam, or sgd optimizer
+- batch size of 16, 32, 64, or 128
+
+Best Performing Model:
+- Hidden Layer 1:
+	- nuerons: 		300
+	- activation: 	relu
+	- dropout: 		0.54424
+- Hidden Layer 2:
+	- nuerons: 		512
+	- activation: 	tanh
+	- dropout: 		0.43404
+- Hidden Layer 3:
+	- nuerons: 		300
+	- activation: 	relu
+	- dropout: 		0.69751
+- Optimizer:	rmsprop
+- Batch Size:	16
+- Performance on Test Set:
+	- Accuracy: 	0.9259259281335054
+	- Loss: 		0.5632826244389569
+
+#### 2.
+Potential Parameters:
+- 2-5 hidden layers with: 
+	- either 150, 200, 256, 300, 350, 400, or 512 neurons
+	- either relu or tanh activation function
+	- dropout from 0-1
+- rmsprop, adam, or sgd optimizer
+- batch size of 8, 16, 32, or 64
+
+Best Performing Model:
+- Hidden Layer 1:
+	- nuerons: 		300
+	- activation: 	tanh
+	- dropout: 		0.06570
+- Hidden Layer 2:
+	- nuerons: 		350
+	- activation: 	relu
+	- dropout: 		0.73664
+- Hidden Layer 3:
+	- nuerons: 		512
+	- activation: 	relu
+	- dropout: 		0.78715
+- Optimizer:	adam
+- Batch Size:	16
+- Performance on Test Set:
+	- Accuracy: 	0.9351851851851852
+	- Loss: 		0.7920230677765276
