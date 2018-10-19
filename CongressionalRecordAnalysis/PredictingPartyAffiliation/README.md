@@ -29,8 +29,8 @@ Vector representations of speach segments will be clustered into N groups. The a
 ## 1. Neural Network using Average Vectors
 
 ### Hyperparameter Optimization
-Using [Hyperas](https://github.com/maxpumperla/hyperas)
-same test set was used for all rounds.
+Using [Hyperas](https://github.com/maxpumperla/hyperas).\\
+The same test set was used for all rounds.
 
 #### Round 1:
 Potential Parameters:
