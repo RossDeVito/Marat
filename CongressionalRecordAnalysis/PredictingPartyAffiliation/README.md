@@ -9,6 +9,10 @@ Will experiment using the following as the feature vector for each congressperso
 ### Average Vector
 All individual speach segments are converted to vectors with the original Gensim doc2vec model. The average of these vectors for each congressperson will be used.
 
+Below are the PCA plots for all speach segments and the averages or the vectors for a speakers segments.
+![all](https://github.com/RossDeVito/Marat/blob/master/Images/PCA_plot_all_vecs.png)![avg](https://github.com/RossDeVito/Marat/blob/master/Images/PCA_plot_all_vecs.png)
+
+
 ### Length Weighted Avg. Vector
 Same as above, but using weighted geometric mean based on length of speach segment. This would make longer speach segments have a greater impact on the average vector.
 
