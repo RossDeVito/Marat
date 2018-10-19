@@ -32,9 +32,7 @@ Vector representations of speach segments will be clustered into N groups. The a
 Using [Hyperas](https://github.com/maxpumperla/hyperas)
 same test set was used for all rounds.
 
-#### Rounds:
-
-##### 1.
+#### Round 1:
 Potential Parameters:
 - 1-3 hidden layers with: 
 	- either 100, 150, 256, 300, or 512 neurons
@@ -62,7 +60,7 @@ Best Performing Model:
 	- Accuracy: 	0.9259259281335054
 	- Loss: 		0.5632826244389569
 
-#### 2.
+#### Round 2:
 Potential Parameters:
 - 2-5 hidden layers with: 
 	- either 150, 200, 256, 300, 350, 400, or 512 neurons
