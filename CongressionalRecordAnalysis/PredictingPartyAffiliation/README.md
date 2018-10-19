@@ -6,19 +6,20 @@ May add Independant as option later.
 
 Will experiment using the following as the feature vector for each congressperson:
 
-### [X] Avg. Vector
-All individual speach segments will be converted to vectors. The average of these vectors will be used.
+### Average Vector
+All individual speach segments are converted to vectors with the original Gensim doc2vec model. The average of these vectors for each congressperson will be used.
 
-### [ ] Length Weighted Avg. Vector
+### Length Weighted Avg. Vector
 Same as above, but using weighted geometric mean based on length of speach segment. This would make longer speach segments have a greater impact on the average vector.
 
 ### Vectorized Union of Speach Segments
-A union of all speach segments are combined and the original doc2vec model is used to determine a vector representation.
+A union of all speach segments are combined and the original Gensim doc2vec model is used to determine a vector representation.
 
 ### N Clusters
 Vector representations of speach segments will be clustered into N groups. The average vectors of all N groups will be used as a feature vector.
 
-## Machine Learning Methods
+# Implemented Approaches
 
-###
+## 1. Neural Network using Average Vectors
+
 
