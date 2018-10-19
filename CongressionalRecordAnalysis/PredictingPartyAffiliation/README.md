@@ -11,10 +11,9 @@ All individual speach segments are converted to vectors with the original Gensim
 
 Below are the PCA plots for all speach segments and the averages or the vectors for a speakers segments.
 
-<p align="center">
-  <img src="/Images/PCA_plot_all_vecs.png" width="500" />
-  <img src="/Images/PCA_plot_avg_vecs.png" width="500" /> 
-</p>
+![all](https://github.com/RossDeVito/Marat/blob/master/Images/PCA_plot_all_vecs.png)
+![avg](https://github.com/RossDeVito/Marat/blob/master/Images/PCA_plot_avg_vecs.png)
+
 
 ### Length Weighted Avg. Vector
 Same as above, but using weighted geometric mean based on length of speach segment. This would make longer speach segments have a greater impact on the average vector.
