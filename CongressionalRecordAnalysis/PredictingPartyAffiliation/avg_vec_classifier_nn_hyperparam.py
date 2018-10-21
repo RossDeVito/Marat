@@ -41,13 +41,13 @@ def data():
 def create_model(X_train, y_train, X_test, y_test):
 	model = Sequential()
 	model.add(Dense(
-		{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+		{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 		input_dim=300, 
 		activation={{choice(['relu', 'tanh'])}}))
 	model.add(Dropout({{uniform(0, 1)}}))
 
 	model.add(Dense(
-		{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+		{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 		activation={{choice(['relu', 'tanh'])}}))
 	model.add(Dropout({{uniform(0, 1)}}))
 
@@ -55,25 +55,25 @@ def create_model(X_train, y_train, X_test, y_test):
 
 	if n_hidden != 'two':
 		model.add(Dense(
-			{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+			{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 			activation={{choice(['relu', 'tanh'])}}))
 		model.add(Dropout({{uniform(0, 1)}}))
 
 		if n_hidden != 'three':
 			model.add(Dense(
-				{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+				{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 				activation={{choice(['relu', 'tanh'])}}))
 			model.add(Dropout({{uniform(0, 1)}}))
 
 			if n_hidden != 'four':
 				model.add(Dense(
-					{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+					{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 					activation={{choice(['relu', 'tanh'])}}))
 				model.add(Dropout({{uniform(0, 1)}}))
 
 				if n_hidden != 'five':
 					model.add(Dense(
-						{{choice([150, 200, 256, 300, 350, 400, 512])}}, 
+						{{choice([256, 300, 350, 400, 450, 500, 550, 600])}}, 
 						activation={{choice(['relu', 'tanh'])}}))
 					model.add(Dropout({{uniform(0, 1)}}))
 	
@@ -83,8 +83,8 @@ def create_model(X_train, y_train, X_test, y_test):
 					metrics=['accuracy'])
 
 	result = model.fit(X_train, y_train,
-		batch_size={{choice([8, 16, 32, 64])}},
-		epochs={{choice([50, 150, 200])}},
+		batch_size={{choice([8, 16, 32])}},
+		epochs={{choice([150, 200])}},
 		verbose=2,
 		validation_split=0.1)
 	#get the highest validation accuracy of the training epochs
