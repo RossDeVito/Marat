@@ -55,6 +55,6 @@ Using [Hyperas](https://github.com/maxpumperla/hyperas). The same test set was u
 - rmsprop, adam, or sgd optimizer
 - batch size of 8, 16, 32, or 64
 
-#### Best Performing Model Chosen Hyper-Parameters:
+#### Best Performing Model Chosen Hyper-Parameters and Test Set Performance:
 
 <table><tr><th>Round</th><th>Layer 1:<br>Neurons<br></th><th><br>Activation<br></th><th><br>Dropout</th><th>Layer 2:<br>Neurons<br></th><th><br>Activation<br></th><th><br>Dropout<br></th><th>Layer 3:<br>Neurons<br></th><th><br>Activation</th><th><br>Dropout<br></th><th>Optimizer</th><th>Batch Size</th><th>Test Set Accuracy</th><th>Test Set Loss</th></tr><tr><td>1</td><td>300</td><td>relu</td><td>.54424</td><td>512</td><td>tanh</td><td>.43404</td><td>300</td><td>relu</td><td>.69751</td><td>rmsprop</td><td>16</td><td>0.9259259281335054</td><td>0.5632826244389569</td></tr><tr><td>2</td><td>300</td><td>tanh</td><td>.06570</td><td>350</td><td>relu</td><td>.73664</td><td>512</td><td>relu</td><td>.78715</td><td>adam</td><td>16</td><td>0.9351851851851852</td><td>0.7920230677765276</td></tr><tr><td>3</td><td>450</td><td>tanh</td><td>.06570</td><td>550</td><td>relu</td><td>.73664</td><td>600</td><td>relu</td><td>.78715</td><td>adam</td><td>16</td><td>0.907407405199828</td><td>0.6660188585519791</td></tr></table>
