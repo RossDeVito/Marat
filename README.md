@@ -10,9 +10,8 @@ Named after Jean-Paul Marat and his use of the writen word and questionable fact
 	- e.g. Mapping polical statements into a vectorspace of news articles
   
 ### Congressional Record
-- Predicting party affiliation
-- Predicting home district
-- Predicting voting
+- [Predicting party affiliation](https://github.com/RossDeVito/Marat/tree/master/CongressionalRecordAnalysis/PredictingPartyAffiliation)
+- Predicting voting on bills
 
 ### Official Twitter Accounts
 - Predicting party affiliation
