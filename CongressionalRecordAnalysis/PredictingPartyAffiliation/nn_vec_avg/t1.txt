@@ -47,3 +47,13 @@ Evalutation of best performing model:
 [0.5632826244389569, 0.9259259281335054]
 Best performing model chosen hyper-parameters:
 {'Dense': 3, 'Dense_1': 4, 'Dense_2': 3, 'Dropout': 0.5442420919810019, 'Dropout_1': 0.43404126142165134, 'Dropout_2': 0.6975075528853121, 'activation': 0, 'activation_1': 1, 'activation_2': 0, 'batch_size': 0, 'epochs': 1, 'n_hidden': 2, 'optimizer': 0}
+
+
+
+Evalutation of best performing model:
+108/108 [==============================] - 0s 283us/step
+[0.7423749367396036, 0.8518518496442724]
+Best performing model chosen hyper-parameters:
+{'Dense': 13, 'Dense_1': 10, 'Dense_2': 12, 'Dense_3': 7, 'Dense_4': 7, 'Dense_5': 14, 'Dropout': 0.8469072279547732, 'Dropout_1': 0.3210389307864787, 'Dropout_2': 0.5948712568443267, 'Dropout_3': 0.4970559482092457, 'Dropout_4': 0.06765709934504838, 'Dropout_5': 0.9662681038993752, 'activation': 0, 'activation_1': 1, 'activation_2': 0, 'activation_3': 0, 'activation_4': 1, 'activation_5': 0, 'batch_size': 0, 'n_hidden': 1, 'optimizer': 0}
+
+
