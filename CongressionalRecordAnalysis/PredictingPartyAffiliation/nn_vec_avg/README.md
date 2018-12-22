@@ -25,6 +25,14 @@ Using [Hyperas](https://github.com/maxpumperla/hyperas). The same test set was u
 - rmsprop, adam, or sgd optimizer
 - batch size of 8, 16, 32, or 64
 
+#### Round 4 Potential Parameters:
+- 2-6 hidden layers with: 
+	- either 256, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625, 650, or 700 neurons
+	- either relu or tanh activation function
+	- dropout from 0-1
+- rmsprop, adam, or sgd optimizer
+- batch size of 8, 16, or 32
+
 #### Best Performing Model Chosen Hyper-Parameters and Test Set Performance:
 All rounds resulted in a best performing model with 3 hidden layers.
 

@@ -1,5 +1,5 @@
 import os
-
+#hello
 import matplotlib.pyplot as plt
 import numpy as np 
 import pandas as pd
@@ -18,7 +18,7 @@ def data():
 	"""
 	source = '114thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t4.h5'
 
-	df = pd.read_hdf(os.path.join('../', 'dataframes', source), 'df')
+	df = pd.read_hdf(os.path.join('../..', 'dataframes', source), 'df')
 	df = df[((df['party']=='R') | (df['party']=='D')) & (df['num_texts'] != 0)]
 	df['party_bin'] = (df['party'] == 'D').astype(int) #D is 1, R is 0
 

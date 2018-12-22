@@ -18,14 +18,14 @@ def data():
 	"""
 	source = '114thmin100_dbow+w_d300_n5_w15_mc15_s1e-05_t4.h5'
 
-	df = pd.read_hdf(os.path.join('../', 'dataframes', source), 'df')
+	df = pd.read_hdf(os.path.join('../..', 'dataframes', source), 'df')
 	df = df[((df['party']=='R') | (df['party']=='D')) & (df['num_texts'] != 0)]
 	df['party_bin'] = (df['party'] == 'D').astype(int) #D is 1, R is 0
 
 	X_train, X_test, y_train, y_test = train_test_split(
 		df['avg_vec'],
 		df['party_bin'],
-		test_size=.001,
+		test_size=.1,
 		shuffle=True)
 	X_train = np.stack(X_train.values)
 	y_train = y_train.values  
@@ -73,6 +73,18 @@ if __name__ == '__main__':
 					optimizer='adam',
 					metrics=['accuracy'])
 
+	model_4 = Sequential()
+	model_4.add(Dense(600, input_dim=300, activation='relu'))
+	model_4.add(Dropout(.84691))
+	model_4.add(Dense(525, activation='tanh'))
+	model_4.add(Dropout(.32104))
+	model_4.add(Dense(575, activation='relu'))
+	model_4.add(Dropout(.59487))
+	model_4.add(Dense(1, activation='sigmoid'))
+	model_4.compile(loss='binary_crossentropy',
+					optimizer='rmsprop',
+					metrics=['accuracy'])
+
 	m_1_res = model_1.fit(
 		X_train, 
 		y_train, 
@@ -97,34 +109,48 @@ if __name__ == '__main__':
 		batch_size=16,
 		verbose=2)
 
-	plt.plot(m_1_res.history['acc'])
-	plt.plot(m_1_res.history['val_acc'])
-	plt.plot(m_2_res.history['acc'])
-	plt.plot(m_2_res.history['val_acc'])
-	plt.plot(m_3_res.history['acc'])
-	plt.plot(m_3_res.history['val_acc'])
+	m_4_res = model_4.fit(
+		X_train, 
+		y_train, 
+		validation_split=0.1, 
+		epochs=100, 
+		batch_size=8,
+		verbose=2)
+
+	plt.plot(m_1_res.history['acc'], c='#a6cee3')
+	plt.plot(m_1_res.history['val_acc'], c='#1f78b4')
+	plt.plot(m_2_res.history['acc'], c='#b2df8a')
+	plt.plot(m_2_res.history['val_acc'], c='#33a02c')
+	plt.plot(m_3_res.history['acc'], c='#fb9a99')
+	plt.plot(m_3_res.history['val_acc'], c='#e31a1c')
+	plt.plot(m_4_res.history['acc'], c='#fdbf6f')
+	plt.plot(m_4_res.history['val_acc'], c='#ff7f00')
 	plt.title('model accuracy')
 	plt.ylabel('accuracy')
 	plt.xlabel('epoch')
 	plt.legend(
 		['model 1 train', 'model 1 test', 
 			'model 2 train', 'model 2 test', 
-			'model 3 train', 'model 3 test'], 
+			'model 3 train', 'model 3 test',
+			'model 4 train', 'model 4 test'], 
 		loc='lower right')
 	plt.show()
 
-	plt.plot(m_1_res.history['loss'])
-	plt.plot(m_1_res.history['val_loss'])
-	plt.plot(m_2_res.history['loss'])
-	plt.plot(m_2_res.history['val_loss'])
-	plt.plot(m_3_res.history['loss'])
-	plt.plot(m_3_res.history['val_loss'])
+	plt.plot(m_1_res.history['loss'], c='#a6cee3')
+	plt.plot(m_1_res.history['val_loss'], c='#1f78b4')
+	plt.plot(m_2_res.history['loss'], c='#b2df8a')
+	plt.plot(m_2_res.history['val_loss'], c='#33a02c')
+	plt.plot(m_3_res.history['loss'], c='#fb9a99')
+	plt.plot(m_3_res.history['val_loss'], c='#e31a1c')
+	plt.plot(m_4_res.history['loss'], c='#fdbf6f')
+	plt.plot(m_4_res.history['val_loss'], c='#ff7f00')
 	plt.title('model loss')
 	plt.ylabel('loss')
 	plt.xlabel('epoch')
 	plt.legend(
 		['model 1 train', 'model 1 test', 
 			'model 2 train', 'model 2 test', 
-			'model 3 train', 'model 3 test'], 
+			'model 3 train', 'model 3 test',
+			'model 4 train', 'model 4 test'], 
 		loc='upper left')
 	plt.show()
